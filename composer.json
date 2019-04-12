@@ -1,0 +1,7 @@
+{
+    "name": "soku/slimtest",
+    "description": "Un test de Slim3",
+    "require": {
+        "slim/slim": "^3.12"
+    }
+}
