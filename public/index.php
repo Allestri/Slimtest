@@ -3,8 +3,7 @@
 require '../vendor/autoload.php';
 
 
-$pdo = new PDO('mysql:dbname=slimtest;host=localhost', 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
 
 class DemoMiddleware {
@@ -20,13 +19,20 @@ class DemoMiddleware {
 }
 
 $app = new \Slim\App();
+$container = $app->getContainer();
+$container['pdo'] = function () {
+    $pdo = new PDO('mysql:dbname=slimtest;host=localhost', 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $pdo;
+};
+
 $app->add(new DemoMiddleware());
 $app->get('/', function (\Slim\Http\Request $request, \Slim\Http\Response $response, $args) {
     var_dump($args);
-    $nom = "Marc";
+    $nom = "Alex";
     
     // Test request
-    $req = $pdo->prepare('SELECT * FROM posts');
+    $req = $this->pdo->prepare('SELECT * FROM posts');
     $req->execute();
     $posts = $req->fetchAll();
     var_dump($posts);
