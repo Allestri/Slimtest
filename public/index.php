@@ -11,6 +11,8 @@ $app = new \Slim\App([
     
 ]);
 
+require('../app/container.php');
+
 $app->get('/salut/{name}', \App\Controllers\PagesController::class . ':home');
 
 $app->run();
