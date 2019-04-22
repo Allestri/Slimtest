@@ -26,5 +26,11 @@ class PagesController extends Controller {
         
     }
     
+    public function postContact(RequestInterface $request, ResponseInterface $response)
+    {
+        var_dump($request->getParams());
+        die();
+    }
+    
     
 }

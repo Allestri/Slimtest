@@ -3,7 +3,8 @@
 	"description" : "Un test de Slim3",
 	"require" : {
 		"slim/slim" : "^3.12",
-		"slim/twig-view" : "^2.5"
+		"slim/twig-view" : "^2.5",
+		"swiftmailer/swiftmailer": "^6.2"
 	},
 	"autoload" : {
 		"psr-4" : {

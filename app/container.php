@@ -17,3 +17,10 @@ $container['view'] = function ($container) {
     
     return $view;
 };
+
+$container['mailer'] = function ($container) {
+    
+    $transport = Swift_SmtpTransport::newInstance('localhost,' 1025);
+    $mailer = Swift_Mailer::newInstance($transport);
+    return $mailer;
+};
