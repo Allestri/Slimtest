@@ -1,0 +1,14 @@
+{% extends "layout.twig" %}
+
+
+{% block content %}
+	<h1>Contact</h1>
+	<p>Une autre page pour nous contacter</p>
+	
+	
+	<form action="{{ path_for('contact') }}" method="POST" 
+		<div class="form-group">
+			<label for="name">Nom</label>
+			<button type="submit" class="btn btn-primary">Submit</button>
+			</div></form>
+{% endblock %}
