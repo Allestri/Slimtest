@@ -13,11 +13,19 @@ class Controller {
         $this->container = $container;
     }
     
+    public function redirect($response, $name){
+        
+        return $response->withStatus(302)->withHeader('Location', $this->router->pathFor($name));
+    }
     
     
     public function render(ResponseInterface $response, $file){
         
         $this->container->view->render($response, $file);
+    }
+    
+    public function __get($name) {
+        return $this->container->get($name);
     }
     
 }

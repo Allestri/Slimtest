@@ -7,7 +7,7 @@ $container = $app->getContainer();
 $container['view'] = function ($container) {
     $dir = dirname(__DIR__);
     $view = new \Slim\Views\Twig($dir . '/app/views', [
-        'cache' => false //$dir . '/tmp/cache'
+        'cache' => false //dir . '/tmp/cache'
     ]);
     
     // Instantiate and add Slim specific extension
@@ -20,7 +20,7 @@ $container['view'] = function ($container) {
 
 $container['mailer'] = function ($container) {
     
-    $transport = Swift_SmtpTransport::newInstance('localhost,' 1025);
-    $mailer = Swift_Mailer::newInstance($transport);
+    $transport = (new Swift_SmtpTransport('localhost', 1025));
+    $mailer = new Swift_Mailer($transport);
     return $mailer;
 };
