@@ -5,7 +5,11 @@
 	<h1>Contact</h1>
 	<p>Une autre page pour nous contacter</p>
 	
-	
+	{% if flash.success %}
+		<div class="alert alert-success">
+			{{ flash.success }}
+		</div>
+	{% endif %}
 	<form action="{{ path_for('contact') }}" method="POST" 
 		<div class="form-group">
 			<label for="name">Nom</label>

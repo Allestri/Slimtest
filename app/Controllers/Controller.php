@@ -19,9 +19,9 @@ class Controller {
     }
     
     
-    public function render(ResponseInterface $response, $file){
+    public function render(ResponseInterface $response, $file, $params = []){
         
-        $this->container->view->render($response, $file);
+        $this->container->view->render($response, $file, $params);
     }
     
     public function __get($name) {
