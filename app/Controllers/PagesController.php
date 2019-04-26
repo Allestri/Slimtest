@@ -29,9 +29,7 @@ class PagesController extends Controller {
     
     public function postContact(RequestInterface $request, ResponseInterface $response)
     {
-        $_SESSION['flash'] = [
-            'success' => 'Votre message a bien été envoyé'
-        ];
+        $this->flash('Votre message a bien ete envoye.');
         /*
         $message = (new \Swift_Message('Un joli Sujet'))
             ->setFrom([$request->getParam('email') => $request->getParam('name')])

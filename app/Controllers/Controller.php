@@ -19,6 +19,15 @@ class Controller {
     }
     
     
+    public function flash($message, $type = 'success')
+    {
+        if(!isset($_SESSION['flash'])){
+            $_SESSION['flash'] = [];
+        }
+        return $_SESSION['flash'][$type] = $message;
+    }
+    
+    
     public function render(ResponseInterface $response, $file, $params = []){
         
         $this->container->view->render($response, $file, $params);
