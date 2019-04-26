@@ -29,18 +29,21 @@ class PagesController extends Controller {
     
     public function postContact(RequestInterface $request, ResponseInterface $response)
     {
-        $this->flash('Votre message a bien ete envoye.');
-        /*
+        $_SESSION['flash'] = [
+            'success' => 'Votre message a bien ete envoye'
+        ];
+        
+        
+        // $this->flash('Votre message a bien ete envoye.');
+        
         $message = (new \Swift_Message('Un joli Sujet'))
             ->setFrom([$request->getParam('email') => $request->getParam('name')])
             ->setTo('contact@monsite.fr')
             ->setBody("Un email vient vous a ete envoye :
             {$request->getParam('content')}");
         $this->mailer->send($message);
-        //var_dump($this->mailer);
-         */
+        
         return $this->redirect($response, 'contact');
-        die();
     }
     
     

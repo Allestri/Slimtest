@@ -5,12 +5,15 @@ namespace App\Middlewares;
 use Slim\Http\Request;
 use Slim\Handlers\Strategies\RequestResponse;
 use Slim\Http\Response;
+use Twig\Environment;
 
 class FlashMiddleware {
     
+
+    
     private $twig;
     
-    public function __construct(\Twig_Environment $twig)
+    public function __construct(Environment $twig)
     {
         $this->twig = $twig;
     }
