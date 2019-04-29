@@ -1,6 +1,7 @@
 <?php
 
-require_once 'Models/Model.php';
+namespace App\Models;
+
 
 class Content extends Model
 {
@@ -11,3 +12,4 @@ class Content extends Model
         $content = $this->executerRequete($sql);
         return $content->fetchAll();
     }
+}

@@ -28,6 +28,7 @@ class Controller {
         return $this->container->get($name);
     }
     
+    
     //public function flash($message, $type = 'success')
     //{
     //    if(!isset($_SESSION['flash'])){

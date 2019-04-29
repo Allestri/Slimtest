@@ -5,12 +5,21 @@ namespace App\Controllers;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-
+require_once 'Models/content.php';
 
 
 class PagesController extends Controller {
     
 
+    public function __construct()
+    {
+        $this->posts = new content();
+    }
+    
+    public function displayContent()
+    {
+        $posts = $this->posts->getContent();
+    }
     
     public function home(RequestInterface $request, ResponseInterface $response)
     {
@@ -45,6 +54,8 @@ class PagesController extends Controller {
         
         return $this->redirect($response, 'contact');
     }
+    
+
     
     
 }
