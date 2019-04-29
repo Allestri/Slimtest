@@ -32,7 +32,7 @@ $app = new \Slim\App([
 require('../app/container.php');
 
 
-// $container = $app->getContainer();
+$container = $app->getContainer();
 
 // Middlewares
 // $app->add(new DemoMiddleware());
