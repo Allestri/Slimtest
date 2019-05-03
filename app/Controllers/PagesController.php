@@ -4,27 +4,29 @@ namespace App\Controllers;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-
-require_once 'Models/content.php';
+use App\Models\Content;
 
 
 class PagesController extends Controller {
     
-
+/*
     public function __construct()
     {
-        $this->posts = new content();
+        $this->posts = new Content();
     }
     
     public function displayContent()
     {
         $posts = $this->posts->getContent();
     }
+    */
     
     public function home(RequestInterface $request, ResponseInterface $response)
     {
-        
-        $this->render($response, 'pages/home.twig');
+        $contentModel = new Content();
+        $name = $contentModel->getName();
+        $username = $contentModel->getUsername();
+        $this->render($response, 'pages/home.twig', ["name"=>$name, "username"=>$username]);
         
     }
     

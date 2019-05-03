@@ -12,4 +12,15 @@ class Content extends Model
         $content = $this->executerRequete($sql);
         return $content->fetchAll();
     }
+    
+    public function getName(){
+        
+        return "John";
+    }
+    
+    public function getUsername(){
+        return "Username";
+    }
+    
+    
 }

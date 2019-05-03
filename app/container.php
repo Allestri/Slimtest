@@ -6,6 +6,7 @@ $container = $app->getContainer();
 // Register component on container
 $container['view'] = function ($container) {
     $dir = dirname(__DIR__);
+    // var_dump($dir);
     $view = new \Slim\Views\Twig($dir . '/app/views', [
         'cache' => false //dir . '/tmp/cache'
     ]);
